@@ -4,9 +4,12 @@ const sqlite3 = require("sqlite3");
 const path = require("path");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 
 const app = express();
+
 app.use(express.json());
+app.use(cors());
 
 const dbPath = path.join(__dirname, "twitterClone.db");
 
@@ -18,8 +21,8 @@ const initializeDbAndServer = async () => {
       filename: dbPath,
       driver: sqlite3.Database,
     });
-    app.listen(3000, () => {
-      console.log("Server Running at http://localhost:3000/");
+    app.listen(process.env.PORT || 3004, () => {
+      console.log("Server Running at http://localhost:3004/");
     });
   } catch (error) {
     console.log(`DB Error: ${error.message}`);
