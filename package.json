@@ -16,9 +16,10 @@
     "sqlite3": "5.0.2"
   },
   "engines": {
-    "node": "6.11.1"
+    "node": "14.18.2"
   },
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "build": "ng build"
   }
 }
